@@ -53,7 +53,7 @@
         <param name="controller_frequency" value="5.0" />
         <param name="controller_patience" value="15.0" />
     </node>
-  
+
   <node name="unity_endpoint" pkg="ros_tcp_endpoint" type="default_server_endpoint.py" output="screen">
         <param name="tcp_ip" type="string" value="$(arg tcp_ip)"/>
         <param name="tcp_port" type="int" value="$(arg tcp_port)"/>
@@ -61,4 +61,6 @@
 
   <node name="map2odom" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 /slamware_map /odom 100"/>
   <node name="base2laser" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 /base_link /laser 100"/>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find slamware_ros_sdk)/rviz/slamware_ros_sdk_teb.rviz" />
 </launch>
