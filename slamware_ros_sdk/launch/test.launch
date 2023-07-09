@@ -59,6 +59,9 @@
         <param name="tcp_port" type="int" value="$(arg tcp_port)"/>
   </node>
 
+  <!-- rosserial node added -->
+  <node name="rosserial" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyUSB0 _baud:=115200" output="screen" />
+
   <node name="map2odom" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 /slamware_map /odom 100"/>
   <node name="base2laser" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 1 /base_link /laser 100"/>
 </launch>
